@@ -1,0 +1,216 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-color: #03357a; 
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-container img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.titulo {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.cabecalho {
+    display: inline-block;
+    gap: 30px;
+    align-items:center;
+    
+}
+
+.cabecalho a {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration:solid;
+    padding: 8px;
+}
+
+.area-cliente {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.container {
+    background-color: #0a3876;
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    flex-direction: row;
+}
+
+.fazerlogin {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.formlogin {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.formlogin label {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.formlogin input {
+    background-color: #f1f1f1;
+    border: none;
+    height: 40px;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.botoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    flex-wrap: wrap; 
+}
+
+.criar-conta {
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.botao-avancar {
+    background-color: #6b86b9;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.botao-avancar:hover {
+    background-color: #506a94;
+}
+
+
+@media (max-width: 1024px) { 
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .cabecalho {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .cabecalho a {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .container {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .botoes {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .botao-avancar {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) { 
+    body {
+        padding-top: 100px; }
+
+    main {
+        padding: 140px 15px 20px;
+    }
+
+    .container {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .cabecalho {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .botoes {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .botao-avancar {
+        width: 100%;
+        text-align: center;
+    }
+}
+

@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+header {
+    background-color: #03357a;
+    color: white;
+    display: grid;
+    grid-template-columns: auto 1fr; 
+    align-items: center;
+    gap: 20px;
+    padding: 15px 40px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.logo-container img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.titulo {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.cabecalho {
+    display: inline-block;
+    gap: 50px;
+    align-items:center;
+    justify-items: baseline;
+    
+}
+
+.cabecalho a {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration:solid;
+    padding: 8px;
+}
+
+.area-cliente {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+
+main {
+    height: 100vh;
+    display: grid;
+    place-items: center; 
+    width: 100%;
+    padding: 20px;
+    margin-top: 80px; 
+}
+
+.container {
+    background-color: #0a3876;
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.faleconosco {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.informacoes {
+    text-align: left;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.informacoes a {
+    color: #f1f1f1;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.informacoes a:hover {
+    color: #6b86b9;
+}
+
+@media (max-width: 1024px) {
+    header {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .cabecalho {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .cabecalho a {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .container {
+        width: 90%;
+        padding: 30px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 140px 15px 20px;
+    }
+
+    .container {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .cabecalho {
+        grid-template-columns: 1fr; 
+        gap: 10px;
+    }
+
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 130px 10px 20px;
+    }
+
+    .container {
+        max-width: 300px;
+        padding: 25px;
+    }
+
+    .cabecalho a {
+        font-size: 12px;
+    }
+}

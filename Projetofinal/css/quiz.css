@@ -1,0 +1,334 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-color: #03357a; 
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-container img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.titulo {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.cabecalho {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap; 
+}
+
+.cabecalho a {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 8px;
+    white-space: nowrap; 
+}
+main {
+    height: 100vh;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    margin-top: 115px;
+}
+.elemento{
+    display: flex;
+    height:400px;
+    width:650px;
+    left:5px;
+    top: 130px;
+    position:absolute;
+}
+    
+.image{
+    width: 80%; 
+    height: 400px; 
+    max-width: 100%; 
+    display: block; 
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    border-radius: 35px;
+}
+
+.texto{
+    font-size: 30px;
+    font-family: Junge;
+    color:#03357a;
+    text-align: left;
+    white-space: nowrap;
+    margin-left: 220px;
+}
+
+.texto p{
+    font-size: 20px;
+    font-family: Junge;
+    color:#03357a;
+    text-align: left;
+    white-space: nowrap;
+    margin-right: 10px;
+    margin-top:40px;
+}
+
+.botao {
+    background-color: #03357a;
+    color: white;
+    border-radius:15px;
+    border:1px solid #ffffff;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 100px;
+    margin-left: 100px;
+    font-family: Junge;
+}
+
+
+.container {
+    max-width: 800px;
+    margin-top: 550px;
+    padding: 20px;
+    margin-left: 20px;
+}
+
+.etapa{ 
+    font-family: Junge;
+    font-size: 26px;
+    color:#03357a;
+    justify-content: flex-start;
+}
+h3 {
+    color: #03357a;
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.quizform {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.quiza {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    margin-right: 330px;
+}
+
+.card {
+    background-color: #03357a;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+    transition: 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px solid transparent;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.card p {
+    color: white;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.card input {
+    display: none; 
+}
+
+.buttom {
+    background-color: #03357a;
+    color: white;
+    font-size: 18px;
+    font-family: Junge;
+    padding: 12px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+    margin-left: 500px;
+}
+
+.card input:checked {
+    border: 3px solid green;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.card:has(input:checked) {
+    border: 3px solid green; 
+}
+
+@media (max-width: 1024px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .elemento {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        position: static;
+    }
+
+    .image {
+        width: 90%;
+        height: auto;
+        margin: 20px 0;
+    }
+
+    .texto {
+        text-align: center;
+        margin-left: 0;
+        white-space: normal;
+    }
+
+    .texto p {
+        text-align: center;
+        white-space: normal;
+        margin-right: 0;
+    }
+
+    .botao {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .cabecalho {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .container {
+        margin-top: 100px;
+        text-align: center;
+    }
+
+    .quiza {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-right: 0;
+    }
+
+    .buttom {
+        margin-left: 0;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+        height: auto;
+    }
+
+    .logo-container {
+        justify-content: center;
+    }
+
+    .cabecalho {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .quiza {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 80%;
+        max-width: 250px;
+    }
+
+    .buttom {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .image {
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .texto {
+        font-size: 18px;
+    }
+
+    .texto p {
+        font-size: 14px;
+    }
+
+    .botao {
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+
+    .buttom {
+        font-size: 16px;
+        padding: 12px;
+    }
+}
