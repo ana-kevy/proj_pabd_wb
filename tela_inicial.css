@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-color: #03357a;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.logo img {
+    width: 50px;
+    height: auto;
+}
+
+.cabecalho {
+    display: inline-block;
+    gap: 30px;
+    align-items:center;
+    
+}
+
+.cabecalho a {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 8px;
+}
+
+.area-cliente {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+    margin-top: 20px; 
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+}
+
+.zelando {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: #03357a;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+.ofertas {
+    background-color: white;
+    padding: 50px;
+    width: 100%;
+}
+
+.ofertas h1 {
+    font-size: 24px;
+    color: #03357a;
+    margin-bottom: 20px;
+}
+
+.servicos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    text-align: center;
+}
+
+.card img {
+    width: 70px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+        align-items: center;
+        text-align: center;
+        min-height: 100px; 
+    }
+
+    .cabecalho {
+        flex-direction:column; 
+        gap: 1px; 
+        align-items: center;
+        margin-top: 10px;
+        max-height: 10 px
+    }
+
+    .cabecalho a {
+        font-size: 10px;
+        padding: 0pxpx;
+    }
+
+    .zelando {
+        font-size: 16px;
+        padding: 4px 10px;
+    }
+
+    .ofertas {
+        padding: 30px;
+        text-align: center;
+    }
+
+    .ofertas h1 {
+        font-size: 20px;
+    }
+
+    .servicos {
+        flex-direction: row; 
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 300px;
+    }
+}

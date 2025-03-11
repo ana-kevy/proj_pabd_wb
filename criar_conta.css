@@ -1,0 +1,272 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-color: #03357a;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-container img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.titulo {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.cabecalho {
+    display: inline-block;
+    gap: 30px;
+    align-items:center;
+    
+}
+
+.cabecalho a {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 8px;
+}
+
+.botao-cliente {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.botao-cliente:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 80px;
+    padding: 20px;
+}
+
+.container {
+    display: inline;
+    background-color: #0a3876;
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.criarconta {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.formlogin {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: left;
+}
+
+.formlogin label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.formlogin input, .formlogin select {
+    background-color: #f1f1f1;
+    border: none;
+    height: 40px;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.senha-sexo {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.senha-sexo div {
+    flex: 1;
+    min-width: 140px;
+}
+
+.botoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.voltar {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: color 0.3s;
+}
+
+.voltar:hover {
+    color: #b0c4de;
+}
+
+.avancar {
+    background-color: #6b86b9;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.avancar:hover {
+    background-color: #506a94;
+}
+
+@media (max-width: 1024px) {
+    main {
+        margin-top: 100px;
+        padding: 15px;
+    }
+
+    .container {
+        width: 80%;
+        padding: 35px;
+    }
+
+    .cabecalho {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .cabecalho a {
+        font-size: 14px;
+        padding: 6px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 100px; 
+    }
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .cabecalho {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    main {
+        margin-top: 120px;
+        padding: 15px;
+    }
+
+    .container {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .senha-sexo {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .botoes {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .voltar, .avancar {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 25px;
+    }
+
+    .formlogin input, .formlogin select {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .botao-cliente {
+        font-size: 14px;
+        padding: 6px 15px;
+    }
+
+    .voltar, .avancar {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
