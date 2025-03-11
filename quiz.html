@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="stylesheet" href="./css/quiz.css">
+</head>
+
+<body>  
+    <header>
+        <div class="logo-container">
+            <img src="https://i.pinimg.com/736x/f0/aa/79/f0aa7915b312f4da215c49d01b9ce3c9.jpg" alt="JARDIM DA SAUDADE">
+            <span class="titulo">JARDIM DA SAUDADE</span>
+        </div>
+
+        <nav class="cabecalho">
+            <a href="tela_inicial.html">Inicial</a>
+            <a href="fale.html">Fale conosco</a>
+            <a href="login.html" class="area-cliente">Área do Cliente</a>
+        </nav>
+        
+    </header>
+    <div class="elemento">
+        <img src="https://www.orsola.com.br/wp-content/uploads/2022/02/Enterro-entenda-esse-ritual-1.jpg" class="image">
+        <div class="texto">
+            <h2>MONTE SEU FUNERAL</h2>
+            <p>Escolha como será seu funeral, este é um dia muito<br> importante na sua vida <br> e é de suma importância que esteja conforme você deseja!</p>
+            <button class="botao">COMEÇAR</button>
+        </div>
+    </div>
+    <main>
+        <div class="container">
+            <div class="etapa">
+                <p>1</p>
+            </div>
+            <h3>Primeiramente, escolha qual será seu rito:</h3>
+        <form class="quizform" id="quizform">
+            <div class= "quiza">
+                <label class="card">
+                    <input type="radio" name="rito" value="enterro" required>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAXc1q-BAfMHsuXkL0C3_ZMccdNXhpALqHTw&s" alt="Enterro">
+                    <p>ENTERRO</p>
+                </label>
+
+                <label class="card">
+                    <input type="radio" name="rito" value="cremacao" required>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4j8Q0VAkeXO1fQCwcxB0m5YQlBHSXsfdavw&s" alt="Cremação">
+                    <p>CREMAÇÃO</p>
+                </label>
+
+            </div>
+            <button type="submit" class="buttom">AVANÇAR</button>
+        </form>
+
+    </main>
+    <script>
+        document.getElementById("quizform").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+    
+            
+            let escolha = document.querySelector('input[name="rito"]:checked');
+    
+            if (escolha) {
+                if (escolha.value === "enterro") {
+                    window.location.href = "quize.html"; 
+                } else if (escolha.value === "cremacao") {
+                    window.location.href = "quizc.html"; 
+                }
+            } else {
+                alert("Por favor, escolha uma opção antes de avançar!");
+            }
+        });
+    </script>
+        
+</body>

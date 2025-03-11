@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/criar_conta.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="https://i.pinimg.com/736x/f0/aa/79/f0aa7915b312f4da215c49d01b9ce3c9.jpg" alt="JARDIM DA SAUDADE">
+            <span class="titulo">JARDIM DA SAUDADE</span>
+        </div>
+        
+        <nav class="cabecalho">
+            <a href="tela_inicial.html">Inicio</a>
+            <a href="fale.html">Fale conosco</a>
+            <a href="login.html" class="area-cliente">Área do Cliente</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2 class="criarconta">Criar Conta</h2>
+            <form class="formlogin" id="loginform">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <div class="senha-sexo">
+                    <div>
+                        <label for="senha">Senha</label>
+                        <input type="password" id="senha" name="senha" required>
+                    </div>
+                    <div>
+                        <label for="sexo">Sexo</label>
+                        <select id="sexo" name="sexo" required>
+                            <option value="masculino">Masculino</option>
+                            <option value="feminino">Feminino</option>
+                        </select>
+                    </div>
+                </div>
+
+                <label for="cep">CEP</label>
+                <input type="text" id="cep" name="cep" required>
+                
+                <div class="botoes">
+                    <button type="button" class="voltar" onclick="window.location.href='login.html'">Voltar</button>
+                    <button type="submit" class="avancar">Avançar</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script type="module">
+        import { cadastrarUsuario } from '../js/funcoes.js'; // Importa a função de cadastro
+
+        // Função para lidar com o envio do formulário
+        async function handleCadastro(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            // Captura os valores dos campos do formulário
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+            let sexo = document.getElementById('sexo').value;
+            const cep = document.getElementById('cep').value;
+
+            if (sexo === "Feminino") {
+                sexo = "F";
+            } else{
+                sexo = "M";
+            };
+
+            // Cria um objeto com os dados do usuário
+            const usuario = {
+                nome: nome,
+                email: email,
+                senha: senha,
+                sexo: sexo,
+                cep: cep
+            };
+
+            console.log("Dados do usuário:", usuario);
+
+            try {
+                // Chama a função de cadastro (que faz a requisição à API)
+                const resposta = await cadastrarUsuario(usuario);
+
+                // Verifica se o cadastro foi bem-sucedido
+                if (resposta.user_id > 0) {
+                    alert("Cadastro realizado com sucesso!"); // Exibe mensagem de sucesso
+                    window.location.href = "login.html"; // Redireciona para a página de login
+                } else {
+                    alert(resposta.mensagem); // Exibe mensagem de erro retornada pela API
+                }
+            } catch (error) {
+                console.error("Erro ao cadastrar usuário:", error);
+                alert("Erro ao cadastrar usuário. Tente novamente."); // Exibe mensagem de erro para o usuario
+            }
+        }
+
+        // Adiciona o evento de submit ao formulário
+        document.getElementById('loginform').addEventListener('submit', handleCadastro);
+    </script>
+</body>
+</html>

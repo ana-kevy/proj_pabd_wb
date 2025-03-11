@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+ 
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="https://i.pinimg.com/736x/f0/aa/79/f0aa7915b312f4da215c49d01b9ce3c9.jpg" alt="JARDIM DA SAUDADE">
+            <span class="titulo">JARDIM DA SAUDADE</span>
+        </div>
+        
+        <nav class="cabecalho">
+            <a href="tela_inicial.html">Planos</a>
+            <a href="fale.html">Fale conosco</a>
+            <a href="login.html" class="area-cliente">Área do Cliente</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container"> 
+            <h2 class="fazerlogin">FAZER LOGIN</h2>
+
+            <form class="formlogin" id="loginform" onsubmit=" verificar_login(event)">
+                <label for="email">EMAIL</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="senha">SENHA</label>
+                <input type="password" id="senha" name="senha" required>
+
+                <div class="botoes">
+                    <a href="criar_conta.html" class="criar-conta">CRIAR CONTA</a>
+                    <button type="submit" class="botao-avancar">AVANÇAR</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script type="module">
+        import * as funcao from '../js/funcoes.js';
+    
+        // Função para verificar o login
+        async function verificar_login(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+    
+            // Captura os valores do formulário
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+            try {
+                // Chama a função de login (assíncrona)
+                const { data, user_id } = await funcao.login(email, senha);
+    
+                // Verifica se o login foi bem-sucedido (user_id > 0)
+                if (user_id > 0) {
+                    alert("Login realizado com sucesso."); // Exibe mensagem de sucesso
+                    // Redireciona o usuário para outra página 
+                    // Armazenar o user_id no sessionStorage
+                    sessionStorage.setItem("user_id", user_id);
+                    window.location.href = "quiz.html"; // Altere para a página desejada
+                } else {
+                    alert("Credenciais inválidas. Tente novamente.");
+                }
+            } catch (erro) {
+                console.error("Erro ao fazer login:", erro);
+                alert("Erro ao fazer login. Tente novamente.");
+            }
+        }
+    
+        // Adiciona o evento de submit ao formulário
+        document.getElementById('loginform').addEventListener('submit', verificar_login);
+    </script>
+</body>
+</html>
