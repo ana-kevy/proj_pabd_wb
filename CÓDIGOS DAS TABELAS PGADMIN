@@ -1,0 +1,98 @@
+CREATE TABLE IF NOT EXISTS public.cadastro
+(
+    user_id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    nome character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    email character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    senha character varying(10) COLLATE pg_catalog."default" NOT NULL,
+    sexo character(1) COLLATE pg_catalog."default" NOT NULL,
+    cep character(8) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT cadastro_pkey PRIMARY KEY (user_id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.cadastro
+    OWNER to postgres;
+
+
+
+-------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS public.detalhes_cremacao
+(
+    id_cremacao integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 2 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    cor_das_cinzas character varying(10) COLLATE pg_catalog."default" NOT NULL,
+    material_pote character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    estilo_pote character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    cor_do_pote character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    plano_id integer NOT NULL,
+    CONSTRAINT detalhes_cremacao_pkey PRIMARY KEY (id_cremacao),
+    CONSTRAINT detalhes_cremacao_plano_id_fkey FOREIGN KEY (plano_id)
+        REFERENCES public.plano (plano_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.detalhes_cremacao
+    OWNER to postgres;
+
+---------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS public.detalhes_enterro
+(
+    id_enterro integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 3 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    cor_caixao character varying(10) COLLATE pg_catalog."default" NOT NULL,
+    material_caixao character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    estilo_caixao character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    tipo_lapide character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    plano_id integer NOT NULL,
+    CONSTRAINT detalhes_enterro_pkey PRIMARY KEY (id_enterro),
+    CONSTRAINT detalhes_enterro_plano_id_fkey FOREIGN KEY (plano_id)
+        REFERENCES public.plano (plano_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.detalhes_enterro
+    OWNER to postgres;
+
+------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS public.plano
+(
+    plano_id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 6 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    user_id integer NOT NULL,
+    tipo_rito integer NOT NULL,
+    CONSTRAINT plano_pkey PRIMARY KEY (plano_id),
+    CONSTRAINT plano_tipo_rito_fkey FOREIGN KEY (tipo_rito)
+        REFERENCES public.ritos (tipo_rito) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT plano_user_id_fkey FOREIGN KEY (user_id)
+        REFERENCES public.cadastro (user_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.plano
+    OWNER to postgres;
+
+-------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS public.ritos
+(
+    tipo_rito integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    rito_funerario character varying(10) COLLATE pg_catalog."default" NOT NULL,
+    preco integer NOT NULL,
+    CONSTRAINT ritos_pkey PRIMARY KEY (tipo_rito)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.ritos
+    OWNER to postgres;
